@@ -6,8 +6,9 @@ import "./jumbotron.css";
 const Jumbotron = (props) => {
 
     return (
-      <div className="container-fluid" id="background">
-              <div className ="jumbotron">
+    <div className="row">
+      <div className="container-fluid"  id="background">
+        <div className ="jumbotron col-lg-12">
           <h1 className="display-3">BookMarked</h1>
           <p>A lifetime of reading is a lot to keep track of.</p>
           <Link className="btn btn-primary btn-lg" id="pinkbutton" to="/bookentry" role="button">Add a Book &raquo;</Link>
@@ -15,6 +16,7 @@ const Jumbotron = (props) => {
           <Link className="btn btn-primary btn-lg" id="pinkbutton" to="/stats" role="button">Reading Stats &raquo;</Link>
         </div>
       </div>
+    </div>
       
 
 

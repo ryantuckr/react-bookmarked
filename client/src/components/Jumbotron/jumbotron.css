@@ -1,10 +1,14 @@
-
+.container-fluid {
+    background-color: #343A40;
+}
 
 .jumbotron {
     background-image: url(header-bg.jpg);
     background-size: cover;
-    position: relative;
-    height: 580px;
+    
+    height: 600px;
+   
+
 }
 
 #pinkbutton {
