@@ -1,12 +1,15 @@
 import React from 'react';
-import "./navbarstyle.css";
+import {Link} from 'react-router-dom';
+import "./navbarstyle.css"
+
+
 
 const Navbar = (props) => {
 
     return (
 
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-            <a className="navbar-brand" href="/home">BookMarked</a>
+            <Link className="navbar-brand" to="/home">BookMarked</Link>
             <button
                 className="navbar-toggler"
                 type="button"
@@ -20,17 +23,17 @@ const Navbar = (props) => {
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="/bookentry">Add a Book</a>
+                        <Link className="nav-link" to="/bookentry">Add a Book</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/allbooks">All Books</a>
+                        <Link className="nav-link" to="/allbooks">All Books</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/stats">Reading Stats</a>
+                        <Link className="nav-link" to="/stats">Reading Stats</Link>
                     </li>
                 </ul>
                 
-                <button onClick = {props.handleLogout}>Log Out</button>
+                <button className="btn btn-primary btn-md" id="logoutbtn">Log Out</button>
                 <form className="form-inline mt-2 mt-md-0"></form>
             </div>
         </nav>

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import axios from 'axios';
-
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import BookEntryForm from './components/BookEntry/BookEntryForm/bookentryform';
 import Stats from "./components/Stats/stats";
 import AllBooks from './components/AllBooks/allbooks';
-import Navbar from './components/Navbar/navbar'
+
 
 class App extends Component {
   state = {
@@ -26,7 +24,7 @@ class App extends Component {
 
   componentDidMount(){
     axios.get("/auth/isAuthenticated").then((result)=>{
-      const {userId, isAuthenticated,username} = result.data
+      const {userId, isAuthenticated, username} = result.data
       this.setState({
         auth:{
           userId,
@@ -91,6 +89,7 @@ class App extends Component {
            <Router>
         
         <div>
+          
         
         <Route exact path = "/" render = {()=> {
           if(loggedIn){
@@ -120,19 +119,19 @@ class App extends Component {
           if(!loggedIn){
             return <Redirect to = "/" />
           } else {
-            return <Home handleLogout = {this.handleLogout} auth = { this.state.auth }/>
+            return <Home handleLogout = {this.handleLogout} auth = {this.state.auth}/>
           } 
         }
         }/>
 
         <Route path = "/bookentry" render = {()=> {
-            return <BookEntryForm/>
+            return <BookEntryForm auth={this.state.auth}/>
           } 
         }
         />
 
           <Route path = "/allbooks" render = {()=> {
-            return <AllBooks/>
+            return <AllBooks />
           } 
         }
         />

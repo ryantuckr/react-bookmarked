@@ -1,12 +1,12 @@
 import React from 'react';
-import "./style.css";
+//import "./style.css";
 import {Link} from 'react-router-dom';
 
 const SignIn = (props)=> {
 
 	return (
 		<div>
-			<h1>SIGN IN</h1>
+			<h1>Sign in to BookMarked</h1>
 			<Link to = "/signup" >Go to sign up</Link>
 			<form>
 				<label>Email</label><br/>

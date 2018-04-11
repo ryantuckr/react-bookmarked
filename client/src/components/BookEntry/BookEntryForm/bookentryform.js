@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import "./bookentryform.css";
+import BookEntryResults from "../BookEntryResults/bookentryresults";
+import Navbar from "../../Navbar/navbar";
+import "./bookentry.css"
+
 const axios = require("axios");
 
 class BookEntryForm extends Component {
@@ -10,6 +13,16 @@ class BookEntryForm extends Component {
     endReadDate: "", 
     books: [],
   };
+
+  showBookResults = results => {
+    if (results.length) {
+      return <BookEntryResults books={results} auth={this.props.auth} />
+    }else {
+      return (
+        <div></div>
+      )
+    }
+  }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -40,21 +53,11 @@ class BookEntryForm extends Component {
         this.setState({
             books: response.data.items
           })
-
-          console.log("test: " + this.state.books)
-          
-             
-        //2. display the thumbnails in the book entry component div below
-       
-        //map over the books array.
-
+   
 
     })
     
 
-
-
-    
 
     //call to google with user title 
      
@@ -69,6 +72,7 @@ class BookEntryForm extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div>
+        <Navbar />
         <h3>New Book Entry</h3>
         <form className="form" >
           <input
@@ -92,11 +96,13 @@ class BookEntryForm extends Component {
             type="date"
             placeholder="End Date"
           />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button className="btn btn-primary btn-md" id="searchbtn" onClick={this.handleFormSubmit}>Submit</button>
         </form>
         
-        <div className="bookresults">{this.state.books}</div>
         
+          <div className="bookresults"></div>
+          {this.showBookResults(this.state.books)}
+                
       </div>
     );
   }

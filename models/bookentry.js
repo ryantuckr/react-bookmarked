@@ -33,7 +33,14 @@ var BookSchema = new Schema({
   thumbnail: {
     type: String,
     required: true
+  }, 
+  userId: {
+    type: Schema.Types.ObjectId, 
+    ref: 'User',
+    required: true
   }
+ 
+
  });
 
 // This creates our model from the above schema, using mongoose's model method

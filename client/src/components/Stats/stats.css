@@ -1,0 +1,11 @@
+.photo {
+    background-image: url(bookstats.jpeg);
+    background-repeat: no-repeat;
+    height: 750px;
+  }
+
+  #bttn {
+    background-color: #f53f51;
+    border: #f53f51
+  
+  }
